@@ -15,7 +15,7 @@ export default HomePage
 
 const Container = styled.div`
   
-min-height: calc(100vh - 100px);
+min-height: 85vh;
 border: 2px solid red;
 
 `

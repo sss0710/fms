@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from 'styled-components'
 import SearchIcon from '@material-ui/icons/Search';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
+import { Card,Button } from 'react-bootstrap';
 
 const ReadMore = ({ children }) => {
   const text = children;
@@ -12,9 +13,9 @@ const ReadMore = ({ children }) => {
 
   return (
     <p className="text">
-      {isReadMore ? text.slice(0, 100) : text}
-      <span onClick={toggleReadMore} className="read-or-hide">
-        {isReadMore ? "...read more" : " show less"}
+      {isReadMore ? text.slice(0, 250) : text}
+      <span onClick={toggleReadMore} className="read-or-hide"><strong>{ isReadMore ? "   ... Read More" : " Show Less" } </strong>
+      
       </span>
     </p>
   );
@@ -23,32 +24,37 @@ const ReadMore = ({ children }) => {
 function Header() {
   return (
     <div>
-    <Nav>
-       <NavMenu>
-         <Logo src="./images/logo.svg" />
+      <Nav>
+        <NavMenu>
+          <Logo src="./images/logo2.svg" />
           <a>
-           <SearchIcon />
+            <SearchIcon />
             <span>Search</span>
           </a>
           <a>
-          <PermIdentityIcon />
+            <PermIdentityIcon />
             <span>Login</span>
           </a>
-        </NavMenu> 
-        
-    </Nav>
-    <WarningMenu>
-    <ReadMore className="readmore">
-          GeeksforGeeks: A Computer Science portal for geeks. 
-          It contains well written, well thought and well explained
-          computer science, programming articles and quizzes. 
-          It provides a variety of services for you to learn, so thrive
-          and also have fun! Free Tutorials, Millions of Articles, Live, 
-          Online and Classroom Courses ,Frequent Coding Competitions,
-          Webinars by Industry Experts, Internship opportunities, and Job
-          Opportunities. Knowledge is power!
-        </ReadMore>
-    </WarningMenu>
+        </NavMenu>
+        <Menu>
+            <h1>Hello</h1>
+        </Menu>
+      </Nav>
+      <WarningMenu>
+        <Card style={ { width: "1000px", margin: "0 auto"} }>
+          <Card.Body>
+            {/* <Card.Img  src="./images/warn.jpg"  style={{width: "100px", display:"-ms-flexbox", alignItems: "center", marginLeft:"5px"}} /> */}
+            <Card.Title style={{marginLeft:"18px", textDecoration:"underline"}}>Warning !</Card.Title>
+              <Card.Text style={{marginLeft:"18px"}}>
+              <ReadMore>
+              You must check if you are eligible to travel from India
+              Indian nationals, regardless of foreign residency status, can only travel from India to the UK, Ireland and Cayman Islands and must hold a valid visa. India nationals cannot travel further to any other countries, unless their spouse is a foreign national or they are a seaman travelling with authorised documentation from the Ministry of Shipping. You will not be allowed to board your flight if you do not meet these requirements. If you’d like to talk, please call us on our International Toll Free number 0008004401060 or contact your travel agent. Due to COVID-19, we are currently working with limited capacity.Thanks for bearing with us.
+              </ReadMore>
+              </Card.Text>
+            {/* <Button variant="primary">Read More</Button> */}
+          </Card.Body>
+        </Card>
+      </WarningMenu>
     </div>
   )
 }
@@ -58,21 +64,21 @@ export default Header
 // Using CSS in JS File  via  ==> Styled-Component 
 
 const Nav = styled.div`
-height: 100px;
+height: 15vh;
 width: 100vw;
 display: flex;
 align-items: center;
 padding: 0 36px;
-border: 2px solid blue;
+// border: 2px solid blue;
 box-shadow : 
 `
 const Logo = styled.img`
-width: 150px;
-height: 100px;
+width: 180px;
+height: 200px;
 margin-top: 0;
 margin-bottom:0;
-margin-right: 1000px;
-margin-left : 100px;
+margin-right: 550px;
+margin-left : 200px;
 cursor: pointer;
 
 `
@@ -119,11 +125,15 @@ a {
 
 `
 
+const Menu = styled.div`
+
+`
+
 const WarningMenu = styled.div`
-border: 2px solid green;
-  height: 100px;
+  // border: 2px solid green;
+  background-color: lightgrey;
+  box-shadow: 
   cursor: pointer;
   padding: 20px  20px;
-
 
 `
